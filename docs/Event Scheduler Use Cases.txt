@@ -1,0 +1,17 @@
+@startuml
+:User:
+:Leader: --|> :User:
+
+(Sign Up) as signup
+(Log In) as login
+(Create Event) as create
+(Send Invites) as send
+
+:Leader: -> create
+
+:User: -> login
+login <. signup : <<Extends>>
+
+create <. send : <<Includes>>
+
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+actor User
+actor Leader
+boundary Server
+database DB
+
+Leader -> Server: Send user info, meeting parameters
+Server -> DB: Create user
+Server -> DB: Create meeting
+Server -> Leader: Reply w/ JWT
+Leader -> Server: Send participants contact
+User <- Server: Send invites
+
+@enduml
